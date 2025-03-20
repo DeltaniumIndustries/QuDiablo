@@ -1,0 +1,10 @@
+{
+	"id": "QuDiablo",
+	"loadorder": 1,
+	"title": "QuDiablo",
+	"description": "Adds new types of cells, ruins, encounters, etc.",
+	"tags": "silly,random,items",
+	"version": "1.2.1",
+	"author": "{{glotrot|LunarLaurus}}",
+	"previewImage": "preview.png"
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<factions LoadPriority="5000">
+
+    <faction Name="Tristram" DisplayName="villagers of Tristram" Old="false" FormatWithArticle="true" InitialPlayerReputation="0" PositiveSound="Sounds/Reputation/sfx_reputation_village_positive" NegativeSound="Sounds/Reputation/sfx_reputation_village_negative" EmblemTile="Terrain/tile_fancy.png" EmblemTileColor="Y" EmblemDetailColor="R">
+        <feeling About="*" Value="0" />
+        <feeling About="Beasts" Value="-50" />
+        <feeling About="Girsh" Value="-50" />
+        <feeling About="Joppa" Value="-50" />
+        <feeling About="Wardens" Value="0" />
+        <waterritual Skill="CookingAndGathering" Recipe="MushroomCider" RecipeText="Would you share the favorite dish of Tristram's villagers?" />
+        <interests>
+            <interest Tags="mountains" />
+            <interest Tags="robot,lair" WillBuy="false" WillSell="true" />
+        </interests>
+        <factionworshipattitudes>
+            <factionworshipattitude Name="Girsh" Attitude="-100" />
+            <factionworshipattitude Name="Entropic" Attitude="-100" />
+        </factionworshipattitudes>
+    </faction>
+
+    <faction Name="LaurusFactionMinionsOfDarkness" Parent="Beasts" DisplayName="Dark Beings" InitialPlayerReputation="-775" PositiveSound="Sounds/Reputation/sfx_reputation_robot_positive" NegativeSound="Sounds/Reputation/sfx_reputation_robot_negative" HistoricalSignificance="1" EmblemTile="creatures/sw_scrapbot.bmp" EmblemTileColor="c" EmblemDetailColor="W">
+        <feeling About="*" Value="-500" />
+        <interests>
+            <interest Tags="tech" WillBuy="false" WillSell="true" />
+            <interest Tags="rusty" WillBuy="true" WillSell="false" />
+            <interest Tags="ruins" WillBuy="false" WillSell="true" />
+            <interest Tags="settlement" />
+        </interests>
+        <factionworshipattitudes Default="-50">
+            <factionworshipattitude Name="Girsh" Attitude="-100" />
+            <factionworshipattitude Name="Entropic" Attitude="-100" />
+        </factionworshipattitudes>
+    </faction>
+
+</factions>

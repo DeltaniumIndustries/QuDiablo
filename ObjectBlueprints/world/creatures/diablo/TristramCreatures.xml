@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<objects>
+
+    <!-- Village Base NPCs -->
+    <object Name="TristramBaseNPC" Inherits="NPC">
+        <part Name="Brain" Wanders="false" Hostile="false" Factions="Tristram-100" />
+        <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit" />
+        <tag Name="BaseObject" Value="*noinherit" />
+    </object>
+    <object Name="TristramBaseNamedNPC" Inherits="TristramBaseNPC">
+        <part Name="Brain" Wanders="false" Hostile="false" Factions="Tristram-100" />
+        <part Name="Interesting" />
+        <stat Name="Level" Value="16" />
+        <stat Name="Hitpoints" Value="85" />
+        <!-- Village Base Inventory -->
+        <skill Name="Tactics_Charge" />
+        <skill Name="SingleWeaponFighting" />
+        <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit" />
+        <tag Name="BaseObject" Value="*noinherit" />
+        <stat Name="Strength" Boost="10" />
+        <stat Name="Agility" Boost="10" />
+        <stat Name="Toughness" Boost="10" />
+        <stat Name="Intelligence" Boost="10" />
+        <stat Name="Willpower" Boost="10" />
+        <stat Name="Ego" Boost="10" />
+        <stat Name="AV" Boost="3" />
+        <stat Name="DV" Boost="3" />
+    </object>
+
+
+    <!-- Village Named NPCs -->
+    <object Name="TristramVillagerAdria" Inherits="TristramBaseNamedNPC">
+        <part Name="Brain" Wanders="false" Hostile="false" Factions="Tristram-100" />
+        <part Name="Render" DisplayName="Adria" ColorString="&amp;B" DetailColor="W" Tile="creatures/caste_13.bmp" />
+        <part Name="Honorifics" Primary="Witch" />
+        <part Name="Description" Short="=pronouns.Subjective= moves with a deliberate grace, draped in dark robes that whisper with every step. The piercing gaze of =pronouns.possessive= sea-wide eyes glows with arcane knowledge, and a silver talisman hangs heavy at =pronouns.possessive= throat, etched with symbols too ancient for most to decipher. The scent of herbs and damp earth clings to =pronouns.objective=, an ever-present reminder of the power =pronouns.subjective= wield=verb:s= beyond mortal ken." />
+        <part Name="ConversationScript" ConversationID="TristramVillagerAdriaConversation" />
+        <tag Name="InventoryPopulationTable" Value="LaurusTristramInventoryAdria" />
+        <part Name="GenericInventoryRestocker" Table="LaurusTristramInventoryAdriaWares" />
+        <tag Name="Gender" Value="female" />
+        <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit" />
+        <tag Name="NoHateFactions" Value="Wardens,Consortium" />
+        <xtagGrammar Proper="true" />
+        <tag Name="Role" Value="NPC" />
+        <inventoryobject Blueprint="Walking Stick" />
+    </object>
+    <object Name="TristramVillagerCelia" Inherits="TristramBaseNamedNPC">
+        <part Name="Brain" Wanders="false" Hostile="false" Factions="Tristram-100" />
+        <part Name="Render" DisplayName="Celia" ColorString="&amp;y" DetailColor="g" Tile="Creatures/sw_child.png"/>
+        <part Name="Honorifics" Primary="Child" />
+        <part Name="Description" Short="=pronouns.Subjective= scamper about the village with a boundless curiosity that outpaces =pronouns.possessive= small frame. A smudge of dirt freckles =pronouns.possessive= nose, and =pronouns.possessive= patched woolen dress flutters as =pronouns.subjective= move. =pronouns.Possessive= laughter, bright and fleeting, carries through the troubled streets like the last echo of a simpler time." />
+        <part Name="ConversationScript" ConversationID="TristramVillagerCeliaConversation" />
+        <tag Name="Gender" Value="female" />
+        <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit" />
+        <tag Name="NoHateFactions" Value="Wardens,Consortium" />
+        <xtagGrammar Proper="true" />
+        <tag Name="Role" Value="NPC" />
+    </object>
+    <object Name="TristramVillagerDeckardCain" Inherits="TristramBaseNamedNPC">
+        <part Name="Brain" Wanders="false" Hostile="false" Factions="Tristram-100" />
+        <part Name="Render" DisplayName="Deckard Cain" ColorString="&amp;C" DetailColor="W" Tile="creatures/caste_15.bmp"/>
+        <part Name="Honorifics" Primary="Mayor" />
+        <tag Name="Role" Value="NPC" />
+        <part Name="GivesRep" />
+        <tag Name="Mayor" Value="Tristram" />
+        <part Name="Description" Short="=pronouns.Subjective= stand with the weight of centuries upon =pronouns.possessive= shoulders, =pronouns.possessive= long, white beard swaying as =pronouns.subjective= speak in measured tones. The staff in =pronouns.possessive= grip is worn smooth by time and travel, and =pronouns.possessive= robes, though frayed at the edges, still bear the insignia of the Horadrim. =pronouns.Subjective= alone remember=verb:s= all that has been forgotten, and in =pronouns.possessive= voice, the past lives again." />
+        <part Name="ConversationScript" ConversationID="TristramVillagerDeckardCainConversation" />
+        <tag Name="InventoryPopulationTable" Value="LaurusTristramInventoryAdria" />
+        <part Name="GenericInventoryRestocker" Table="LaurusTristramInventoryDeckardCainWares" />
+        <tag Name="Gender" Value="male" />
+        <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit" />
+        <tag Name="NoHateFactions" Value="Wardens,Consortium" />
+        <xtagGrammar Proper="true" />
+        <inventoryobject Blueprint="Wide-brimmed Hat" />
+        <inventoryobject Blueprint="Walking Stick" />
+    </object>
+    <object Name="TristramVillagerFarnham" Inherits="TristramBaseNamedNPC">
+        <part Name="Brain" Wanders="false" Hostile="false" Factions="Tristram-100" />
+        <part Name="Render" DisplayName="Farnham" ColorString="&amp;Y" DetailColor="G" Tile="creatures/caste_18.bmp"/>
+        <part Name="Honorifics" Primary="Drunk" />
+        <part Name="Description" Short="=pronouns.Subjective= slump beneath the burden of =pronouns.possessive= own sorrows, clutching a battered flask as though it were =pronouns.possessive= last friend. =pronouns.Possessive= once-strong frame has withered, and =pronouns.possessive= eyes—red-rimmed and unfocused—stare into a past only =pronouns.subjective= can see. The stench of old ale lingers on =pronouns.possessive= breath, and =pronouns.possessive= words, though often slurred, hint at horrors witnessed beneath the cathedral’s blackened stones." />
+        <part Name="ConversationScript" ConversationID="TristramVillagerFarnhamConversation" />
+        <tag Name="InventoryPopulationTable" Value="LaurusTristramInventoryGeneric" />
+        <tag Name="Gender" Value="male" />
+        <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit" />
+        <tag Name="NoHateFactions" Value="Wardens,Consortium" />
+        <xtagGrammar Proper="true" />
+        <tag Name="Role" Value="NPC" />
+    </object>
+    <object Name="TristramVillagerGillian" Inherits="TristramBaseNamedNPC">
+        <part Name="Brain" Wanders="false" Hostile="false" Factions="Tristram-100" />
+        <part Name="Render" DisplayName="Gillian" ColorString="&amp;Y" DetailColor="g" Tile="creatures/caste_21.bmp"/>
+        <part Name="Honorifics" Primary="Barmaid" />
+        <part Name="Description" Short="=pronouns.Subjective= move with quiet grace, =pronouns.possessive= apron ever dusted with flour and =pronouns.possessive= hands calloused from years of tending hearth and home. Though shadows flicker in =pronouns.possessive= gaze, =pronouns.possessive= voice carries warmth, offering kindness where the world gives little. A silver locket, worn smooth from worry, rests against =pronouns.possessive= chest—a keepsake of a life never lived as it should have been." />
+        <part Name="ConversationScript" ConversationID="TristramVillagerGillianConversation" />
+        <tag Name="InventoryPopulationTable" Value="LaurusTristramInventoryGeneric" />
+        <tag Name="Gender" Value="female" />
+        <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit" />
+        <tag Name="NoHateFactions" Value="Wardens,Consortium" />
+        <xtagGrammar Proper="true" />
+        <tag Name="Role" Value="NPC" />
+    </object>
+    <object Name="TristramVillagerGriswald" Inherits="TristramBaseNamedNPC">
+        <part Name="Brain" Wanders="false" Hostile="false" Factions="Tristram-100" />
+        <part Name="Render" DisplayName="Griswald" ColorString="&amp;r" DetailColor="w" Tile="creatures/caste_23.bmp"/>
+        <part Name="Honorifics" Primary="Blacksmith" />
+        <part Name="Description" Short="=pronouns.Possessive= arms are as thick as an anvil, =pronouns.possessive= hands blackened from a lifetime shaping steel. Every hammer stroke echoes with pride and purpose, though the shadow of recent events darkens =pronouns.possessive= brow. =pronouns.Possessive= apron, stiff with soot and sweat, tells the tale of countless weapons forged, some of which have yet to fulfill their grim destinies." />
+        <part Name="ConversationScript" ConversationID="TristramVillagerGriswaldConversation" />
+        <tag Name="InventoryPopulationTable" Value="LaurusTristramInventoryWarrior" />
+        <part Name="GenericInventoryRestocker" Table="LaurusTristramInventoryGriswaldWares" />
+        <inventoryobject Blueprint="Leather Apron" />
+        <property Name="WontSell" Value="Leather Apron" />
+        <tag Name="Gender" Value="male" />
+        <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit" />
+        <tag Name="NoHateFactions" Value="Wardens,Consortium" />
+        <xtagGrammar Proper="true" />
+        <tag Name="Role" Value="NPC" />
+    </object>
+    <object Name="TristramVillagerKaelRills" Inherits="TristramBaseNamedNPC">
+        <part Name="Brain" Hostile="false" Factions="Wardens-100" />
+        <part Name="GivesRep" />
+        <part Name="Render" DisplayName="Kael Rills" ColorString="&amp;g" DetailColor="r" Tile="creatures/caste_9.bmp"/>
+        <part Name="Honorifics" Primary="Warden" />
+        <part Name="Titles" Primary="Watch Captain" />
+        <tag Name="staticFaction2" Value="Goatfolk,hate,some reason =pronouns.subjective= won't share" />
+        <tag Name="staticFaction1" Value="Tristram,friend,defending their village" />
+        <tag Name="NoHateFactions" Value="Tristram,Consortium,Strangers" />
+        <part Name="Description" Short="=pronouns.Subjective= watch the town with the wary gaze of one who has seen too much and trusts too little. =pronouns.Possessive= clothes, once fine, are threadbare at the cuffs, and a dagger’s hilt peeks from the folds of =pronouns.possessive= belt. =pronouns.Subjective= speak=verb:s= in measured words, offering little and listening much, as though waiting for the moment when the world finally turns against =pronouns.objective=." />
+        <tag Name="Gender" Value="male" />
+        <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit" />
+        <tag Name="InventoryPopulationTable" Value="LaurusTristramInventoryWarrior" />
+        <inventoryobject Blueprint="Plump Mushroom" Number="3-6" />
+        <stat Name="Strength" Boost="8" />
+        <stat Name="Agility" Boost="4" />
+        <stat Name="Toughness" Boost="6" />
+        <stat Name="Intelligence" Boost="-4" />
+        <stat Name="Willpower" Boost="-3" />
+        <stat Name="Ego" Boost="2" />
+        <stat Name="AV" Boost="3" />
+        <stat Name="DV" Boost="3" />
+        <skill Name="Axe" />
+        <skill Name="Axe_Dismember" />
+        <skill Name="Axe_Cleave" />
+        <skill Name="Axe_HookAndDrag" />
+        <skill Name="Axe_Decapitate" />
+        <skill Name="Axe_Berserk" />
+        <skill Name="Cudgel" />
+        <skill Name="Endurance_Calloused" />
+        <skill Name="Persuasion_Intimidate" />
+        <skill Name="Persuasion_Berate" />
+        <skill Name="Pistol_SteadyHands" />
+        <skill Name="Rifle_SteadyHands" />
+        <xtagWaterRitual SellSkill="Persuasion_Intimidate" />
+        <xtagGrammar Proper="true" />
+        <tag Name="Role" Value="NPC" />
+    </object>
+    <object Name="TristramVillagerLester" Inherits="TristramBaseNamedNPC">
+        <part Name="Brain" Wanders="false" Hostile="false" Factions="Tristram-100" />
+        <part Name="Render" DisplayName="Lester" ColorString="&amp;y" DetailColor="w" Tile="creatures/sw_farmer.bmp"/>
+        <part Name="Honorifics" Primary="Farmer" />
+        <part Name="Description" Short="=pronouns.Possessive= hands are rough with the toil of the land, =pronouns.possessive= boots forever caked with the earth =pronouns.subjective= call=verb:s= home. =pronouns.Possessive= voice is steady, each word a seed planted in the air with quiet resolve. Though the fields beyond Tristram grow wild and untamed, =pronouns.subjective= tend=verb:s= to what remains, refusing to let despair take root." />
+        <part Name="ConversationScript" ConversationID="TristramVillagerLesterConversation" />
+        <tag Name="InventoryPopulationTable" Value="LaurusTristramInventoryGeneric" />
+        <tag Name="Gender" Value="male" />
+        <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit" />
+        <tag Name="NoHateFactions" Value="Wardens,Consortium" />
+        <xtagGrammar Proper="true" />
+        <tag Name="Role" Value="NPC" />
+    </object>
+    <object Name="TristramVillagerOgden" Inherits="TristramBaseNamedNPC">
+        <part Name="Brain" Wanders="false" Hostile="false" Factions="Tristram-100" />
+        <part Name="Render" DisplayName="Ogden" ColorString="&amp;w" DetailColor="O" Tile="creatures/sw_templar_squire.bmp"/>
+        <part Name="Honorifics" Primary="Tavern Owner" />
+        <part Name="Description" Short="=pronouns.Subjective= polish=verb:es= a tankard with the ease of one who has done so a thousand times before. The lines at the corners of =pronouns.possessive= eyes deepen with each forced smile, yet =pronouns.subjective= carry=verb:s= on, offering food, drink, and shelter to those who need it—though =pronouns.subjective= know=verb:s= well enough that few will find true comfort in Tristram these days." />
+        <part Name="ConversationScript" ConversationID="TristramVillagerOgdenConversation" />
+        <part Name="GenericInventoryRestocker" Table="LaurusTristramInventoryOgdenWares" />
+        <tag Name="InventoryPopulationTable" Value="LaurusTristramInventoryGeneric" />
+        <tag Name="Gender" Value="male" />
+        <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit" />
+        <tag Name="NoHateFactions" Value="Wardens,Consortium" />
+        <xtagGrammar Proper="true" />
+        <tag Name="Role" Value="NPC" />
+    </object>
+    <object Name="TristramVillagerPepin" Inherits="TristramBaseNamedNPC">
+        <part Name="Brain" Wanders="false" Hostile="false" Factions="Tristram-100" />
+        <part Name="Render" DisplayName="Pepin" ColorString="&amp;M" DetailColor="w" Tile="creatures/sw_stareye_esper.bmp"/>
+        <part Name="Honorifics" Primary="Healer" />
+        <part Name="Description" Short="=pronouns.Subjective= move with a quiet confidence, =pronouns.possessive= hands steady even when fate wavers. =pronouns.Possessive= satchel of remedies clinks as =pronouns.subjective= walk, filled with potions and poultices crafted to mend the flesh, though =pronouns.subjective= know=verb:s= no salve can ease the deeper wounds left upon Tristram’s weary souls." />
+        <part Name="ConversationScript" ConversationID="TristramVillagerPepinConversation" />
+        <tag Name="InventoryPopulationTable" Value="LaurusTristramInventoryAdria" />
+        <part Name="GenericInventoryRestocker" Table="LaurusTristramInventoryPepinWares" />
+        <tag Name="Gender" Value="male" />
+        <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit" />
+        <tag Name="NoHateFactions" Value="Wardens,Consortium" />
+        <xtagGrammar Proper="true" />
+        <tag Name="Role" Value="NPC" />
+        <skill Name="Physic_StaunchWounds" />
+    </object>
+    <object Name="TristramVillagerWirt" Inherits="TristramBaseNamedNPC">
+        <part Name="Brain" Wanders="false" Hostile="false" Factions="Tristram-100" />
+        <part Name="Render" DisplayName="Wirt" ColorString="&amp;W" DetailColor="y" Tile="Creatures/sw_child.png"/>
+        <part Name="Honorifics" Primary="Peg-Legged Boy" />
+        <part Name="Description" Short="=pronouns.Subjective= lean upon =pronouns.possessive= peg leg with a smirk that is equal parts cunning and defiance. =pronouns.Possessive= fine cloak and polished trinkets stand in stark contrast to the village’s decay, each one a testament to a deal well struck. =pronouns.Subjective= speak=verb:s= in a low drawl, words dripping with the promise of riches—if one is willing to pay the price." />
+        <part Name="ConversationScript" ConversationID="TristramVillagerWirtConversation" />
+        <tag Name="InventoryPopulationTable" Value="LaurusTristramInventoryGeneric" />
+        <part Name="GenericInventoryRestocker" Table="LaurusTristramInventoryWirtWares" />
+        <tag Name="Gender" Value="male" />
+        <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit" />
+        <tag Name="NoHateFactions" Value="Wardens,Consortium" />
+        <xtagGrammar Proper="true" />
+        <tag Name="Role" Value="NPC" />
+    </object>
+
+    <object Name="TristramVillagerSecretPlant" Inherits="SapientMutatedVine">
+        <part Name="ConversationScript" ConversationID="TristramVillagerCompleteNutConversation" ClearLost="true" />
+        <part Name="Brain" Wanders="false" Hostile="false" Factions="Consortium-100,Tristram-50" />
+        <stat Name="Level" Value="18" />
+        <stat Name="Strength" sValue="18" />
+        <stat Name="Agility" sValue="24" />
+        <stat Name="Toughness" sValue="16" />
+        <stat Name="Intelligence" sValue="22" />
+        <stat Name="Willpower" sValue="16" />
+        <stat Name="Ego" sValue="19" />
+        <stat Name="Hitpoints" sValue="80" />
+        <part Name="Description" Short="Sera, a sentient broad bean vine, puts =pronouns.possessive= roots down in a squat clay pot on the floor of =pronouns.possessive= hut. Myriad wares rest on oaken shelves throughout the room, and with =pronouns.possessive= tendrils Yurl =verb:exhibit= them to interested customers by crawling along an iron trellis. You notice that Yurl =verb:creep= toward products almost before you think of them; the gift of telepathy affords the sprightly vine a distinct advantage as a chandler." />
+        <part Name="Render" Tile="Creatures/sw_yurl.bmp" TileColor="&amp;R" DetailColor="y" ColorString="&amp;R" RenderString="234" DisplayName="Sera" />
+        <part Name="Interesting" />
+        <tag Name="NoHateFactions" Value="Wardens,Consortium" />
+        <inventoryobject Blueprint="Clay Pot" />
+        <mutation Name="Burgeoning" Level="3" />
+        <mutation Name="Confusion" Level="4" />
+        <mutation Name="ForceBubble" Level="2" />
+        <mutation Name="Telepathy" Level="1" />
+        <mutation Name="PhotosyntheticSkin" Level="1" />
+        <skill Name="Cudgel" />
+        <skill Name="Persuasion_Berate" />
+        <tag Name="Role" Value="NPC" />
+        <part Name="GenericInventoryRestocker" Table="YurlWares" />
+        <inventoryobject Blueprint="Plump Mushroom" Number="3-6" />
+        <tag Name="NoSleep" />
+        <xtagGrammar Proper="true" />
+        <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit" />
+    </object>
+
+
+
+
+
+
+
+
+
+
+    <!-- Village Generic NPCs -->
+    <object Name="Woodsprog Tristram" Inherits="Woodsprog">
+        <part Name="Brain" Wanders="true" Factions="Tristram-100" />
+        <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit" />
+    </object>
+    <!-- Village Generic Animals -->
+    <object Name="LaurusBaseCow" Inherits="BaseAnimal">
+        <part Name="Brain" Hostile="false" Wanders="false" Factions="Tristram-100" />
+        <part Name="Pettable" UseFactionForFeelingFloor="Tristram" />
+        <tag Name="PetResponse" Value="=subject.T= =verb:mooooooooooooo=." />
+        <part Name="SmartuseForceTwiddles" />
+        <tag Name="Class" Value="cow" />
+        <tag Name="Species" Value="cow" />
+        <tag Name="AmbientIdleSound" Value="Sounds/Creatures/VO/sfx_creature_animal_dog_vo_idle"/>
+        <tag Name="PunchSound" Value="Sounds/Creatures/VO/sfx_creature_animal_dog_vo_attack"/>
+        <tag Name="DeathSounds" Value="Sounds/Creatures/VO/sfx_creature_animal_dog_vo_die" />
+        <tag Name="TakeDamageSound" Value="Sounds/Creatures/VO/sfx_creature_animal_dog_vo_hurt"/>
+        <tag Name="BaseObject" Value="*noinherit" />
+        <tag Name="LairAmbientBed" Value="Sounds/Ambiences/amb_creature_dog" />
+    </object>
+    <object Name="LaurusTristramCow" Inherits="LaurusBaseCow">
+        <part Name="Render" DisplayName="cow" Tile="Creatures/sw_cow.png" RenderString="d" ColorString="&amp;y" />
+        <part Name="Corpse" CorpseChance="100" CorpseBlueprint="LaurusCorpseCow" />
+        <stat Name="AV" Value="6" />
+        <stat Name="Hitpoints" Value="40" />
+        <part Name="Description" Short="=pronouns.Subjective= =verb:are:afterpronoun= a rather large bovine." />
+        <part Name="AIPilgrim" Chance ="10" MapNoteAttributes="humanoid,settlement" />
+        <stat Name="Level" Value="4" />
+    </object>
+    <object Name="LaurusTristramCowWander" Inherits="LaurusTristramCow">
+        <part Name="Brain" Hostile="false" Wanders="true" Factions="Tristram-100" />
+    </object>
+    <object Name="LaurusCorpseCow" Inherits="Animal Corpse">
+        <part Name="Render" DisplayName="cow corpse" />
+    </object>
+
+    <!-- Village Wanderers -->
+    <object Name="LaurusTristramConvert" Inherits="TristramBaseNPC">
+        <part Name="Brain" Factions="Tristram-100" />
+        <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit" />
+        <part Name="CustomVillageConvertSpawner" Faction="Tristram" DoesWander="true"/>
+    </object>
+    <object Name="LaurusTristramConvertNoWander" Inherits="TristramBaseNPC">
+        <part Name="Brain" Factions="Tristram-100" />
+        <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit" />
+        <part Name="CustomVillageConvertSpawner" Faction="Tristram" DoesWander="false"/>
+    </object>
+</objects>

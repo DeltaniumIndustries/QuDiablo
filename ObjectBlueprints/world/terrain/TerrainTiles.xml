@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<objects>
+
+  <!-- Static Cells -->
+  <object Name="LaurusTerrainVillageTristram" Inherits="Terrain">
+    <part Name="Render" DisplayName="Tristram" Tile="Terrain/tile_village.png" TileColor="&amp;Y" ColorString="&amp;G^k" RenderString="006" DetailColor="r" />
+    <part Name="Description" Short="stay a while and listen..." />
+  </object>
+
+</objects>

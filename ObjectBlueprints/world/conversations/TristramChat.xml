@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<conversations>
+
+
+    <conversation ID="TristramVillagerConversationBase">
+
+    </conversation>
+
+
+    <!-- Adria -->
+    <conversation ID="TristramVillagerAdriaConversation" Inherits="TristramVillagerConversationBase">
+        <start ID="Welcome">
+            <text>I sense a great power within you… yet power without understanding is a dangerous thing. The forces at work here are beyond mortal comprehension.</text>
+            <choice Target="Forces" Priority="1">What forces do you mean?</choice>
+            <choice Target="Magic" Priority="2">You speak as if you understand them.</choice>
+            <choice Target="Warning" Priority="3">Can anything be done?</choice>
+            <choice Target="End">Keep your torch lit brightly.</choice>
+        </start>
+
+        <node ID="Forces">
+            <text>The darkness stirs, ancient and insatiable. The veil between realms grows thin. Those who do not prepare shall be consumed by what lies beyond.</text>
+            <choice Target="Welcome" Priority="1">I must be ready.</choice>
+            <choice Target="Beyond" Priority="2">What lies beyond?</choice>
+        </node>
+
+        <node ID="Beyond">
+            <text>Shadows that whisper, voids that hunger… things older than time itself. They wait, watching, reaching for the careless.</text>
+            <choice Target="Welcome" Priority="1">Then I will not be careless.</choice>
+        </node>
+
+        <node ID="Magic">
+            <text>Understanding is a burden, not a gift. I have glimpsed truths that burn the mind. But if you are willing… I can teach you to see.</text>
+            <choice Target="Welcome" Priority="1">I will return when I am ready.</choice>
+            <choice Target="TeachMe" Priority="2">Teach me what you know.</choice>
+        </node>
+
+        <node ID="TeachMe">
+            <text>Lessons come with a price, wanderer. Not all are willing to pay it. But should you seek power… seek me again.</text>
+            <choice Target="Welcome" Priority="1">I will consider your offer.</choice>
+        </node>
+
+        <node ID="Warning">
+            <text>There is always a way… but paths that lead to salvation often pass through ruin first. Walk carefully.</text>
+            <choice Target="Welcome" Priority="1">I will tread with caution.</choice>
+        </node>
+    </conversation>
+
+    <!-- Celia -->
+    <conversation ID="TristramVillagerCeliaConversation" Inherits="TristramVillagerConversationBase">
+        <start ID="Welcome">
+            <text>Hi there! Have you seen my kitty, Whiskers? She loves to hide in the strangest places.</text>
+            <choice Target="Whiskers" Priority="1">Tell me about Whiskers!</choice>
+            <choice Target="Scared" Priority="2">Aren’t you scared with all that’s happening?</choice>
+            <choice Target="Monsters" Priority="3">You think she’d fight monsters?</choice>
+            <choice Target="End">Keep your torch lit brightly.</choice>
+        </start>
+
+        <node ID="Whiskers">
+            <text>She’s the bravest kitty in Tristram! I bet she’d even fight the monsters if she had a sword! Maybe one day, I’ll be brave too.</text>
+            <choice Target="Welcome" Priority="1">Stay safe, Celia.</choice>
+            <choice Target="Find" Priority="2">Where did you last see her?</choice>
+        </node>
+
+        <node ID="Find">
+            <text>She ran toward the church ruins last night. I called for her, but she didn’t come back… Do you think she’s okay?</text>
+            <choice Target="Welcome" Priority="1">I’ll keep an eye out.</choice>
+        </node>
+
+        <node ID="Scared">
+            <text>Sometimes… but I don’t think the monsters will come for me. I think they’re afraid of *her*.</text>
+            <choice Target="Welcome" Priority="1">Let’s hope you’re right.</choice>
+        </node>
+
+        <node ID="Monsters">
+            <text>Mm-hmm! If she had a tiny helmet and a tiny sword, she’d swat ‘em all away! I just know it!</text>
+            <choice Target="Welcome" Priority="1">That would be a sight to see.</choice>
+        </node>
+    </conversation>
+
+    <!-- Deckard -->
+    <conversation ID="TristramVillagerDeckardCainConversation" Inherits="TristramVillagerConversationBase">
+        <start ID="Welcome">
+            <text>Stay a while, and listen. The tales of old hold many lessons, if one knows where to look.</text>
+            <choice Target="Horadrim" Priority="1">What lessons do you mean?</choice>
+            <choice Target="Warnings" Priority="2">You speak as if history is repeating.</choice>
+            <choice Target="Necklace" Priority="3">Your pendant… is it Horadric?</choice>
+            <choice Target="End">Keep your torch lit brightly.</choice>
+        </start>
+
+        <node ID="Horadrim">
+            <text>The Horadrim once sealed away a great evil beneath this very town. Now, their wards weaken, and the past seeks to reclaim the present.</text>
+            <choice Target="Welcome" Priority="1">I will heed your words.</choice>
+            <choice Target="Diablo" Priority="2">What evil did they seal?</choice>
+        </node>
+
+        <node ID="Diablo">
+            <text>Diablo, the Lord of Terror. His power was bound in a soulstone, buried deep below the church. But even the strongest chains rust with time…</text>
+            <choice Target="Welcome" Priority="1">Then I will see those chains reforged.</choice>
+        </node>
+
+        <node ID="Warnings">
+            <text>Indeed, I fear that the darkness we now face is but an echo of ancient mistakes. The Horadrim thought themselves victorious… but evil is never truly vanquished, only delayed.</text>
+            <choice Target="Welcome" Priority="1">Then we must act before it rises again.</choice>
+        </node>
+
+        <node ID="Necklace">
+            <text>Ah, you have a keen eye! Yes, this is an old Horadric pendant, a relic of their order. A reminder that even knowledge must be safeguarded, lest it be lost… or twisted.</text>
+            <choice Target="Welcome" Priority="1">Knowledge is a weapon, if wielded wisely.</choice>
+        </node>
+    </conversation>
+
+    <!-- Farnham -->
+    <conversation ID="TristramVillagerFarnhamConversation" Inherits="TristramVillagerConversationBase">
+        <start ID="Welcome">
+            <text>More ale… more ale… can’t unsee it, no matter how much I drink…</text>
+            <choice Target="Madness" Priority="1">What did you see?</choice>
+            <choice Target="Survivor" Priority="2">Has anyone else seen what you have?</choice>
+            <choice Target="Escape" Priority="3">Why do you stay here?</choice>
+            <choice Target="End">Keep your torch lit brightly.</choice>
+        </start>
+
+        <node ID="Madness">
+            <text>They went down there… the knights, the priests, the brave ones… came back wrong. Twisted. Screaming in voices that weren’t their own…</text>
+            <choice Target="Welcome" Priority="1">I must know the truth.</choice>
+            <choice Target="MoreDetails" Priority="2">What happened to them?</choice>
+        </node>
+
+        <node ID="MoreDetails">
+            <text>Their eyes… empty, but their mouths still spoke. Not with their own words, no. Something else spoke through them… something ancient… something hungry.</text>
+            <choice Target="Welcome" Priority="1">Then I will silence it.</choice>
+        </node>
+
+        <node ID="Survivor">
+            <text>Heh… Wirt. That boy saw too much, just like me. But he… he hides it better, behind his coin and his schemes.</text>
+            <choice Target="Welcome" Priority="1">I will speak with him.</choice>
+        </node>
+
+        <node ID="Escape">
+            <text>Leave? Ha! Leave and go where? Nowhere is safe. Nowhere is far enough to escape the things I’ve seen…</text>
+            <choice Target="Welcome" Priority="1">Then I will face them, so no one else has to.</choice>
+        </node>
+    </conversation>
+
+    <!-- Gilian -->
+    <conversation ID="TristramVillagerGillianConversation" Inherits="TristramVillagerConversationBase">
+        <start ID="Welcome">
+            <text>You have the look of a warrior… but even warriors should be careful. Many who went down never came back.</text>
+            <choice Target="Labyrinth" Priority="1">What do you know of the labyrinth?</choice>
+            <choice Target="Grandmother" Priority="2">You mentioned your grandmother?</choice>
+            <choice Target="Survivors" Priority="3">Did anyone return?</choice>
+            <choice Target="End">Keep your torch lit brightly.</choice>
+        </start>
+
+        <node ID="Labyrinth">
+            <text>My grandmother told me stories of the evils buried below. She always said that the past should stay buried… but no one listens.</text>
+            <choice Target="Welcome" Priority="1">I will return, I promise.</choice>
+            <choice Target="Stories" Priority="2">What stories did she tell?</choice>
+        </node>
+
+        <node ID="Stories">
+            <text>She spoke of an ancient king, a man whose grief consumed him, turning his own halls into a tomb. Some say he still lingers, trapped in his sorrow… or something worse.</text>
+            <choice Target="Welcome" Priority="1">Then I will see him laid to rest.</choice>
+        </node>
+
+        <node ID="Grandmother">
+            <text>She was a kind woman, but she had seen too much. She lost family to the church’s darkness long ago, before I was born. It hardened her heart.</text>
+            <choice Target="Welcome" Priority="1">I’m sorry for your loss.</choice>
+        </node>
+
+        <node ID="Survivors">
+            <text>Only a few. Farnham was once a great warrior… but he returned broken. And then there’s Wirt. He survived, but not without a cost.</text>
+            <choice Target="Welcome" Priority="1">I will not share their fate.</choice>
+        </node>
+    </conversation>
+
+    <!-- Griswald -->
+    <conversation ID="TristramVillagerGriswaldConversation" Inherits="TristramVillagerConversationBase">
+        <start ID="Welcome">
+            <text>Ah, a warrior! If you need steel that won’t break when the monsters come, you’ve come to the right place.</text>
+            <choice Target="Stock" Priority="1">What do you have for sale?</choice>
+            <choice Target="Quality" Priority="2">What makes your weapons different?</choice>
+            <choice Target="Origins" Priority="3">Where did you learn your craft?</choice>
+            <choice Target="End">Keep your torch lit brightly.</choice>
+        </start>
+
+        <node ID="Stock">
+            <text>A strong sword is a warrior’s best friend. Many go into the dark unprepared… don’t make the same mistake.</text>
+            <choice Target="Welcome" Priority="1">I’ll make sure I’m ready.</choice>
+        </node>
+
+        <node ID="Quality">
+            <text>Forged with care, tempered with wisdom! My steel won’t let you down, but I can’t say the same for your arms. Keep ‘em strong!</text>
+            <choice Target="Welcome" Priority="1">I’ll remember that.</choice>
+        </node>
+
+        <node ID="Origins">
+            <text>Ha! I learned from the best, back in the East. Master smiths who could hammer steel until it sang. But now, I put my skills to use keeping folk alive.</text>
+            <choice Target="Welcome" Priority="1">A noble purpose.</choice>
+        </node>
+    </conversation>
+
+    <!-- Guard -->
+    <conversation ID="TristramVillagerKaelRillsConversation" Inherits="TristramVillagerConversationBase">
+        <start ID="Welcome">
+            <text>The night is restless… something stirs beyond the town’s edge. I feel it in my bones.</text>
+            <choice Target="Dangers" Priority="1">What dangers do you speak of?</choice>
+            <choice Target="Experience" Priority="2">You've stood guard here for years?</choice>
+            <choice Target="End">Keep your torch lit brightly.</choice>
+        </start>
+
+        <node ID="Dangers">
+            <text>I have stood watch for years, but never have I seen the night so thick with shadows. If you go below… tread carefully.</text>
+            <choice Target="Prepared" Priority="1">I will be prepared.</choice>
+            <choice Target="SeenAnything" Priority="2">Have you actually seen anything?</choice>
+        </node>
+
+        <node ID="Experience">
+            <text>Aye. This town may seem small, but it has always been a crossroads for those seeking fortune—or fleeing something worse. I have seen many pass through… not all return.</text>
+            <choice Target="Prepared" Priority="1">I see. I will be careful.</choice>
+            <choice Target="Strangers" Priority="2">Who has come through lately?</choice>
+        </node>
+
+        <node ID="Strangers">
+            <text>Refugees, lost travelers, and those who speak in riddles. A blind old man passed through not long ago—muttered of a ‘dark rebirth’ before vanishing into the wilds.</text>
+            <choice Target="Prepared" Priority="1">Troubling words… I will be wary.</choice>
+        </node>
+
+        <node ID="SeenAnything">
+            <text>Not with my own eyes. But the cattle grow restless, the dogs howl at nothing, and the night air stinks of death. That is warning enough.</text>
+            <choice Target="Prepared" Priority="1">A good guard trusts his instincts.</choice>
+            <choice Target="Personal" Priority="2">You seem troubled, Kael.</choice>
+        </node>
+
+        <node ID="Personal">
+            <text>Wouldn’t you be? Every instinct in my body tells me to bar the gates, yet we stand here, waiting for doom to come knocking.</text>
+            <choice Target="Prepared" Priority="1">Then I will face it before it reaches our gates.</choice>
+        </node>
+
+        <node ID="Prepared">
+            <text>Good. Just don’t be another name whispered in mourning. This town has lost enough.</text>
+            <choice Target="Welcome" Priority="1">I will return.</choice>
+        </node>
+    </conversation>
+
+
+    <!-- Lester -->
+    <conversation ID="TristramVillagerLesterConversation" Inherits="TristramVillagerConversationBase">
+        <start ID="Welcome">
+            <text>The fields have grown quiet, and the wind carries whispers I do not understand. Something stirs beneath Tristram... something unnatural.</text>
+            <choice Target="HauntingSounds" Priority="1">What do you mean?</choice>
+            <choice Target="Creatures" Priority="2">I heard you've seen something in the fields.</choice>
+            <choice Target="End">Keep your torch lit brightly.</choice>
+        </start>
+
+        <node ID="HauntingSounds">
+            <text>I’ve heard tales of such things before, but never have I felt it so close. The air feels thick… wrong. The kind of wrong that curdles milk and makes dogs howl at empty roads.</text>
+            <choice Target="RestlessNights" Priority="1">You sound afraid.</choice>
+        </node>
+
+        <node ID="RestlessNights">
+            <text>Wouldn’t you be? Something ain’t right. I can’t sleep at night. The silence ain't natural—no chirping, no rustling, just... waiting.</text>
+            <choice Target="Welcome" Priority="1">I'll be careful.</choice>
+        </node>
+
+        <node ID="Creatures">
+            <text>Have you seen 'em? Crawling through the fields at night? My crops ain't the only thing gettin' eaten...</text>
+            <choice Target="DescribeCreatures" Priority="1">What have you seen?</choice>
+        </node>
+
+        <node ID="DescribeCreatures">
+            <text>It ain't natural… big, bloated things writhin’ in the dark. Their eyes shine like embers, and their skin... swollen, splitting, like overripe fruit.</text>
+            <choice Target="EncroachingDarkness" Priority="1">Has anyone else seen them?</choice>
+        </node>
+
+        <node ID="EncroachingDarkness">
+            <text>Farnham, maybe. But that drunk won’t tell you nothin’ that makes sense. The others? They don’t wanna believe it. Easier to pretend nothin’s wrong...</text>
+            <choice Target="CallToAction" Priority="1">And you?</choice>
+        </node>
+
+        <node ID="CallToAction">
+            <text>I ain't pretendin’—I'm askin' for help. You’re the one goin’ down there, ain't ya? If you see what’s been creepin’ in my fields, don’t let it crawl back out.</text>
+            <choice Target="Welcome" Priority="1">I’ll look into it.</choice>
+        </node>
+    </conversation>
+
+    <!-- Ogden -->
+    <conversation ID="TristramVillagerOgdenConversation" Inherits="TristramVillagerConversationBase">
+        <start ID="Welcome">
+            <text>Ah, traveler! If you need a warm meal and a bit of peace, you’ll find it at my tavern. Dark times call for a bright hearth, don't they?</text>
+            <choice Target="Drink" Priority="1">A drink sounds good.</choice>
+            <choice Target="Rumors" Priority="2">How are the people holding up?</choice>
+            <choice Target="Family" Priority="3">How is Garda?</choice>
+            <choice Target="End">Keep your torch lit brightly.</choice>
+        </start>
+
+        <node ID="Drink">
+            <text>Times are dark, but a good meal can lighten the soul. You’ll always find a seat at my table. Just mind Wirt if he tries to sell you something—his prices are as steep as his tongue is sharp.</text>
+            <choice Target="Welcome" Priority="1">Thank you, Ogden.</choice>
+        </node>
+
+        <node ID="Rumors">
+            <text>The village is scared, though most won’t say it aloud. Folk whisper of strange sights near the church, and some have even gone missing. But in here, we keep the fire burning and the ale flowing.</text>
+            <choice Target="Disappearance" Priority="1">Who’s gone missing?</choice>
+            <choice Target="Welcome" Priority="2">Let’s hope it passes soon.</choice>
+        </node>
+
+        <node ID="Disappearance">
+            <text>Young Joram, the stablehand—vanished without a trace. Some say he ran off, but I don’t believe it. His horse is still here, and he wouldn’t have left it behind.</text>
+            <choice Target="Welcome" Priority="1">I’ll keep an eye out.</choice>
+        </node>
+
+        <node ID="Family">
+            <text>Garda does her best to keep things running, but she worries for us all. She won’t say it, but she fears what might happen if the trouble in the church reaches our doorstep.</text>
+            <choice Target="Comfort" Priority="1">She’s strong—like you.</choice>
+        </node>
+
+        <node ID="Comfort">
+            <text>Heh, that’s kind of you to say. Strong, aye—but we’re just trying to get by. If you can put an end to this darkness, I’ll make sure you never pay for a drink in my tavern again.</text>
+            <choice Target="Welcome" Priority="1">I’ll do what I can.</choice>
+        </node>
+    </conversation>
+
+    <!-- Pepin -->
+    <conversation ID="TristramVillagerPepinConversation" Inherits="TristramVillagerConversationBase">
+        <start ID="Welcome">
+            <text>Wounds of the flesh can be mended, but beware—some wounds go deeper than skin. The mind is fragile, and the horrors below can shatter it like glass.</text>
+            <choice Target="Darkness" Priority="1">What do you mean?</choice>
+            <choice Target="Patients" Priority="2">Have you treated many lately?</choice>
+            <choice Target="Healing" Priority="3">Can you heal anything?</choice>
+            <choice Target="End">Keep your torch lit brightly.</choice>
+        </start>
+
+        <node ID="Darkness">
+            <text>The horrors below scar more than just the body. I’ve seen brave men return from the depths of the labyrinth, but they are not the same. Their eyes… hollow, their hands trembling as if the very shadows had taken root in their bones.</text>
+            <choice Target="Consequences" Priority="1">Can they be helped?</choice>
+            <choice Target="Welcome" Priority="2">I will be careful.</choice>
+        </node>
+
+        <node ID="Consequences">
+            <text>Some, perhaps. But for others, I fear the damage is permanent. Farnham, for one... He was once a strong warrior, but now he drowns himself in ale, haunted by things he refuses to speak of.</text>
+            <choice Target="Welcome" Priority="1">I will not end up like that.</choice>
+        </node>
+
+        <node ID="Patients">
+            <text>More than I’d like. The wounds grow worse with each passing day. People come to me with gashes from creatures they refuse to describe. Even the livestock show signs of unnatural affliction.</text>
+            <choice Target="Animals" Priority="1">What’s happening to the animals?</choice>
+        </node>
+
+        <node ID="Animals">
+            <text>The cattle grow sickly, their eyes clouding over with an eerie white haze. Some refuse to eat, others wander aimlessly until they collapse. I have never seen a sickness like this before.</text>
+            <choice Target="Welcome" Priority="1">That is troubling...</choice>
+        </node>
+
+        <node ID="Healing">
+            <text>Most ailments, yes. Herbs and poultices can mend wounds, and tonics can steady the nerves. But there is a sickness of the soul that no medicine can cure.</text>
+            <choice Target="Welcome" Priority="1">I’ll keep that in mind.</choice>
+        </node>
+    </conversation>
+
+    <!-- Wirt -->
+    <conversation ID="TristramVillagerWirtConversation" Inherits="TristramVillagerConversationBase">
+        <start ID="Welcome">
+            <text>Heh, heh… I’ve got something special for you. But quality comes at a price.</text>
+            <choice Target="SeeIt" Priority="1">Let’s see it.</choice>
+            <choice Target="Expensive" Priority="2">Your prices are always steep.</choice>
+            <choice Target="Source" Priority="3">Where do you even find this stuff?</choice>
+            <choice Target="End">Keep your torch lit brightly.</choice>
+        </start>
+
+        <node ID="SeeIt">
+            <text>Trust is a rare commodity, my friend. But for the right price, I can make an exception.</text>
+            <choice Target="Welcome" Priority="1">I’ll keep that in mind.</choice>
+            <choice Target="Haggle" Priority="2">Maybe we can strike a better deal.</choice>
+        </node>
+
+        <node ID="Expensive">
+            <text>Heh, heh… Quality isn’t cheap, and neither am I. But tell you what—buy something, and maybe I’ll throw in a smile for free.</text>
+            <choice Target="Welcome" Priority="1">Fine, let’s see what you have.</choice>
+            <choice Target="Haggle" Priority="2">Maybe you can lower that price just a little.</choice>
+        </node>
+
+        <node ID="Source">
+            <text>A good merchant never reveals his suppliers… but let’s just say the fallen knights of old carried more than just honor.</text>
+            <choice Target="Welcome" Priority="1">I see. Interesting.</choice>
+            <choice Target="Risky" Priority="2">That sounds dangerous.</choice>
+        </node>
+
+        <node ID="Risky">
+            <text>Dangerous? Only for the ones who get caught. Lucky for me, I’m quick… and smarter than most.</text>
+            <choice Target="Welcome" Priority="1">If you say so.</choice>
+        </node>
+
+        <node ID="Haggle">
+            <text>Heh… you drive a hard bargain. But I respect a sharp mind. Maybe—*maybe*—I can shave off a little. But don’t push your luck.</text>
+            <choice Target="Welcome" Priority="1">Fair enough.</choice>
+        </node>
+    </conversation>
+
+    <!-- Not Implemented -->
+    <conversation ID="TristramVillagerTremainConversation" Inherits="TristramVillagerConversationBase">
+        <start ID="Welcome">
+            <text>The Light must prevail against the Darkness, no matter the cost. If you seek divine guidance, know that the battle against evil begins within your own heart.</text>
+            <choice Target="Secondary" Priority="1">Faith?</choice>
+            <choice Target="End">Keep your torch lit brightly.</choice>
+        </start>
+        <node ID="Secondary">
+            <text>Faith alone will not shield you, but it will give you strength. Remember that as you face the horrors below.</text>
+            <choice Target="Welcome" Priority="1">Noted, Father.</choice>
+        </node>
+    </conversation>
+
+    <!-- Not Implemented -->
+    <conversation ID="TristramVillagerCompleteNutConversation" Inherits="TristramVillagerConversationBase">
+        <start ID="Welcome">
+            <text>Hehehe… they whisper… in the walls… in my head. But I don’t listen, oh no… not me!</text>
+            <choice Target="Secondary" Priority="1">What whispers?</choice>
+            <choice Target="End">Keep your torch lit brightly.</choice>
+        </start>
+        <node ID="Secondary">
+            <text>The flames, the eyes, the *teeth*! All waiting, watching, gnawing… but they can’t get me, no no no… not yet.</text>
+            <choice Target="End" Priority="1">I should go.</choice>
+        </node>
+    </conversation>
+
+
+
+
+</conversations>

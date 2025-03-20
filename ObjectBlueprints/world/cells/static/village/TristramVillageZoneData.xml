@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<worlds>
+  <world Name="JoppaWorld" Load="Merge">
+
+    <cell Name="LaurusTristramVillage" Inherits="Mountains" ApplyTo="LaurusTerrainVillageTristram" Mutable="false">
+      <zone Level="5-9" x="0-2" y="0-2" Name="sky above Tristram" IndefiniteArticle="the">
+        <builder Class="Sky" />
+      </zone>
+      <zone Level="10" x="0-2" y="0-2" Name="outskirts" NameContext="Tristram" IndefiniteArticle="some" IncludeStratumInZoneDisplay="false" HasWeather="true" WindSpeed="0-60" WindDirections="N,NW,NW,W,W,SW,S,SE" WindDuration="50-3000">
+        <population Table="LaurusTristramOutskirts" />
+      </zone>
+      <zone Level="10" x="1" y="1" Name="Tristram" ProperName="true" IncludeStratumInZoneDisplay="false" HasWeather="true" WindSpeed="0-60" WindDirections="N,NW,NW,W,W,SW,S,SE" WindDuration="50-3000">
+        <map FileName="Tristram.rpm" />
+        <builder Class="Music" Track="MehmetsMorning" Chance="100" />
+        <prebuilder Class="IsCheckpoint" Key="Tristram" />
+        <builder Class="ReachabilityNorthEdge" />
+        <builder Class="ReachabilityEastEdge" />
+      </zone>
+    </cell>
+
+  </world>
+</worlds>

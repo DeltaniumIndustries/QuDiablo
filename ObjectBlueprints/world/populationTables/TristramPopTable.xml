@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<populations>
+
+    <!-- Tristram Outskirts -->
+    <population Name="LaurusTristramOutskirts">
+        <object Blueprint="DaylightWidget"/>
+        <object Blueprint="SultanShrine" Chance="1" />
+        <table Chance="1" Name="Pilgrims" />
+        <object Blueprint="Grassy" />
+
+        <object Chance="95" Number="160-240" Blueprint="Swarmshade Tree" />
+        <object Chance="95" Number="160-240" Blueprint="Ziv Bough" />
+        <object Chance="40" Number="15-30" Blueprint="Star Palm" />
+        <object Chance="95" Number="60-100" Blueprint="Shimscale Mangrove Tree" />
+        <object Chance="15" Number="3-6" Blueprint="Starapple Tree" />
+
+        <object Chance="50" Number="1-3" Blueprint="Woodsprog" />
+        <object Chance="20" Number="1" Blueprint="LaurusTristramConvert" />
+    </population>
+
+    <population Name="TristramDemonMutatingResults">
+        <group Name="Options" Style="pickone">
+            <object Blueprint="Mutation" Weight="95" />
+            <object Blueprint="Defect" Weight="5" />
+        </group>
+    </population>
+
+    <population Name="LaurusTristramInventoryGeneric">
+        <group Name="Items" Style="pickeach">
+            <table Name="Ingredients_Meat" Number="6-8" />
+            <object Blueprint="Polyhedral Rings" />
+            <object Blueprint="Ape Fur Gloves" />
+            <object Blueprint="Ape Fur Cloak" />
+            <object Blueprint="Chain Boots" />
+            <object Chance="10" Blueprint="Bracelet1" />
+            <object Chance="10" Blueprint="Bracelet2" />
+            <object Chance="5" Blueprint="Bracelet3" />
+        </group>
+    </population>
+    <population Name="LaurusTristramInventoryWarrior">
+        <group Name="Items" Style="pickeach">
+            <table Name="Ingredients_Meat" Number="6-8" />
+            <object Blueprint="Ape Fur Gloves" />
+            <object Blueprint="Ape Fur Cloak" />
+            <object Blueprint="Chain Boots" />
+            <object Blueprint="Ring Mail" />
+            <object Blueprint="Ape Fur Hat" />
+        </group>
+    </population>
+
+
+    <population Name="LaurusTristramInventoryAdria">
+        <group Name="Items" Style="pickeach">
+            <table Name="Ingredients_Meat" Number="6-8" />
+            <object Blueprint="Crimson Hood" />
+            <object Blueprint="Umber Frock" />
+            <object Blueprint="Walking Stick" />
+            <object Blueprint="Ape Fur Gloves" />
+            <object Blueprint="Ape Fur Cloak" />
+            <object Blueprint="Chain Boots" />
+            <object Blueprint="Bracelet1" />
+        </group>
+    </population>
+
+
+    <population Name="LaurusTristramInventoryAdriaWares">
+        <group Name="Items" Style="pickeach">
+            <table Name="IchorMerchantInventory" Number="2-3" />
+        </group>
+    </population>
+    <population Name="LaurusTristramInventoryDeckardCainWares">
+        <group Name="Items" Style="pickeach">
+            <table Name="BookBinderInventory"/>
+        </group>
+    </population>
+    <population Name="LaurusTristramInventoryGriswaldWares">
+        <group Name="GriswaldGeneral" Style="pickeach">
+            <group Name="GriswaldTierWares" Style="pickone">
+                <table Name="Tier2Wares"/>
+                <table Name="Tier3Wares"/>
+            </group>
+            <group Name="GriswaldItems" Style="pickeach">
+                <table Name="ArmorerInventory"/>
+                <table Name="GunsmithInventory"/>
+                <table Name="HumanoidEquipment 2"/>
+            </group>
+        </group>
+
+    </population>
+    <population Name="LaurusTristramInventoryOgdenWares">
+        <group Name="Items" Style="pickeach">
+            <table Name="PigFarmerInventory" Number="1-2" />
+            <table Name="ChefInventory" Number="1-2" />
+        </group>
+    </population>
+    <population Name="LaurusTristramInventoryPepinWares">
+        <group Name="Items" Style="pickeach">
+            <table Name="ApothecaryInventory"/>
+            <group Name="PepinWares" Style="pickone">
+                <table Name="Village Apothecary 5"/>
+                <table Name="Village Apothecary 6"/>
+            </group>
+            <object Blueprint="SalveTonic" Number="4-6" />
+        </group>
+    </population>
+    <population Name="LaurusTristramInventoryWirtWares">
+        <group Name="Items" Style="pickeach">
+            <table Name="ScrapWares" Number="1-2" />
+            <table Name="Village Tinker 3"/>
+        </group>
+    </population>
+
+
+</populations>

@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<objects>
+
+    <!-- Weapon Types -->
+    <object Name="LaurusWeaponBaseBite" Inherits="DefaultBite">
+        <part Name="Render" DisplayName="{{Y|fangs}}" />
+        <part Name="MeleeWeapon" BaseDamage="1d5" />
+        <tag Name="BaseObject" Value="*noinherit" />
+        <tag Name="ShowAsPhysicalFeature" />
+    </object>
+    <object Name="LaurusWeaponBaseFist" Inherits="NaturalFist">
+        <part Name="Render" DisplayName="{{Y|fist}}" />
+        <part Name="MeleeWeapon" BaseDamage="2d5" />
+        <tag Name="BaseObject" Value="*noinherit" />
+        <tag Name="ShowAsPhysicalFeature" />
+    </object>
+    <object Name="LaurusWeaponBaseClaw" Inherits="NaturalWeapon">
+        <part Name="Render" DisplayName="{{Y|claw}}" />
+        <part Name="MeleeWeapon" BaseDamage="1d6" />
+        <tag Name="BaseObject" Value="*noinherit" />
+        <tag Name="ShowAsPhysicalFeature" />
+    </object>
+    <object Name="LaurusWeaponBaseSoftManipulator" Inherits="SoftManipulator">
+        <part Name="Render" DisplayName="{{Y|manipulator}}" />
+        <part Name="MeleeWeapon" BaseDamage="1d4-1" />
+        <tag Name="BaseObject" Value="*noinherit" />
+        <tag Name="UndesirableWeapon" />
+        <tag Name="ShowAsPhysicalFeature" />
+    </object>
+    <object Name="LaurusWeaponBaseHardManipulator" Inherits="HardManipulator">
+        <part Name="Render" DisplayName="{{Y|manipulator}}" />
+        <part Name="MeleeWeapon" BaseDamage="1d6" />
+        <tag Name="BaseObject" Value="*noinherit" />
+        <tag Name="UndesirableWeapon" />
+        <tag Name="ShowAsPhysicalFeature" />
+    </object>
+    <object Name="LaurusWeaponBaseProjectileWeapon" Inherits="NaturalMissileWeapon">
+        <part Name="NoBreak" />
+        <part Name="Render" DisplayName="[Projectile Weapon]" Visible="false" />
+        <tag Name="BaseObject" Value="*noinherit" />
+        <tag Name="ExcludeFromDynamicEncounters" />
+        <tag Name="NaturalGear" />
+        <tag Name="NeverStack" />
+        <tag Name="ShowAsPhysicalFeature" />
+    </object>
+
+    <!-- Corpses -->
+    <object Name="TristramCorpseJustBones" Inherits="Small Animal Corpse">
+        <part Name="Render" DisplayName="bones" Tile="items/sw_bones_7.bmp"/>
+        <builder Name="RandomTile" Tiles="Items/sw_bones_3.bmp,Items/sw_bones_4.bmp,Items/sw_bones_7.bmp,Items/sw_bones_8.bmp" />
+        <part Name="Description" Short="A brittle pile of bones, stripped clean of flesh and left to bleach in the salted dust." />
+        <part Name="Physics" Weight="2" />
+    </object>
+
+    <object Name="TristramCorpseUndead" Inherits="Animal Corpse">
+        <part Name="Render" DisplayName="pile of rotting meat" Tile="items/sw_splat1.bmp"/>
+        <builder Name="RandomTile" Tiles="Items/sw_splat1.bmp,Items/sw_splat3.bmp" />
+        <part Name="Description" Short="A reeking mound of half-liquefied flesh, its decay unnaturally slow." />
+        <part Name="Physics" Weight="5" />
+        <part Name="Food" Message="The meat oozes between your fingers, resisting consumption." />
+    </object>
+
+    <object Name="TristramCorpseDemonSmall" Inherits="Small Animal Corpse">
+        <part Name="Render" DisplayName="demon corpse (s)" Tile="items/sw_splat2.bmp"/>
+        <builder Name="RandomTile" Tiles="Items/sw_splat1.bmp,Items/sw_splat2.bmp,Items/sw_splat3.bmp,Items/sw_splat4.bmp" />
+        <part Name="Description" Short="The twisted remains of a small demon, still faintly smoldering with unholy embers." />
+        <part Name="Physics" Weight="15" />
+        <part Name="Food" Message="The flesh is charred and acrid, burning your tongue as you chew." />
+    </object>
+
+    <object Name="TristramCorpseDemonLarge" Inherits="TristramCorpseDemonSmall">
+        <part Name="Render" DisplayName="demon corpse (L)" Tile="items/sw_splat1.bmp"/>
+        <part Name="Description" Short="The massive, ruined carcass of a demon, its ichor seeping into the ground like molten tar." />
+        <part Name="Physics" Weight="40" />
+        <part Name="Food" Message="The meat writhes as if still alive, fighting every bite." />
+    </object>
+
+    <!-- Base NPCs -->
+    <object Name="TristramBaseDarkCreature" Inherits="Creature">
+        <!-- Core Identity & Behavior -->
+        <tag Name="BaseObject" Value="*noinherit" />
+        <tag Name="BodyDisplayName" Value="Demonic" />
+        <part Name="Body" Anatomy="Humanoid" />
+        <tag Name="Class" Value="human" />
+        <tag Name="Species" Value="human" />
+        <tag Name="Gender" Value="neuter" />
+        <part Name="Brain" Wanders="true" Hostile="true" Factions="LaurusFactionMinionsOfDarkness-100" />
+        <part Name="LaurusTristramDemonMutator" MutationChanceOneInX="250"/>
+
+        <!-- Combat & Gameplay Mechanics -->
+        <stat Name="Level" Value="5" />
+        <stat Name="Hitpoints" Value="40" />
+        <stat Name="Strength" Value="11" />
+        <stat Name="Agility" Value="11" />
+        <stat Name="Toughness" Value="11" />
+        <stat Name="Intelligence" Value="11" />
+        <stat Name="Willpower" Value="11" />
+        <stat Name="Ego" Value="11" />
+        <stat Name="AV" Boost="6" />
+        <stat Name="DV" Boost="3" />
+        <stat Name="XPValue" Value="100" />
+
+        <!-- Anatomy & Physical Properties -->
+        <tag Name="PrimaryLimbType" Value="Hand" />
+        <stag Name="HardMaterial" Value="flesh" />
+        <intproperty Name="Bleeds" Value="1" />
+
+        <!-- Sensory & Audio Design -->
+        <tag Name="PunchSound" Value="Sounds/Creatures/VO/sfx_humanoid_generic_vo_attack" />
+        <tag Name="DeathSounds" Value="Sounds/Creatures/VO/sfx_humanoid_generic_vo_die" />
+        <tag Name="TakeDamageSound" Value="Sounds/Creatures/VO/sfx_humanoid_generic_vo_hurt" />
+        <tag Name="AmbientIdleSound" Value="Sounds/Creatures/VO/sfx_humanoid_generic_vo_idle" />
+        <tag Name="LairAmbientBed" Value="Sounds/Ambiences/amb_creature_humanoid_generic" />
+
+        <!-- Thematic & Lore Elements -->
+        <xtagTextFragments Skin="chitinous hide" PoeticFeatures="jagged fangs,scabrous hide,cloven talons" YounglingNoise="*snarl*" Activity="lurking in the dark,feasting on carrion,stalking the weak" VillageActivity="tearing into the flesh of the unworthy,howling at the blood moon" GuestActivity="marking our territory in ichor" NeedsItemFor="to fuel my insatiable hunger,to appease the will of the abyss,because I covet all things" SacredThing="the spilling of blood,the agony of the prey,the endless hunt" ArableLand="a wasteland of bone and ash" ValuedOre="flesh and suffering" />
+    </object>
+
+
+    <object Name="TristramBaseDarkCreatureHumanoid" Inherits="TristramBaseDarkCreature">
+        <!-- Core Identity & Behavior -->
+        <tag Name="BaseObject" Value="*noinherit" />
+        <intproperty Name="Humanoid" Value="1" />
+        <tag Name="Humanoid" />
+
+        <!-- Combat & Gameplay Mechanics -->
+        <stat Name="Level" Boost="8" />
+        <stat Name="Hitpoints" Boost="40" />
+        <stat Name="Strength" Boost="6" />
+        <stat Name="Agility" Boost="6" />
+        <stat Name="Toughness" Boost="6" />
+        <stat Name="Intelligence" Boost="6" />
+        <stat Name="Willpower" Boost="6" />
+        <stat Name="Ego" Boost="6" />
+        <stat Name="AV" Boost="3" />
+        <stat Name="DV" Boost="3" />
+        <stat Name="XPValue" Boost="100" />
+
+        <!-- Visual & Physical Properties -->
+        <part Name="Render" RenderString="h" />
+        <part Name="Corpse" CorpseChance="60" CorpseBlueprint="Human Corpse" />
+
+        <!-- Interaction & Dialogue -->
+        <part Name="ConversationScript" ConversationID="Humanoids" ClearLost="true" />
+        <tag Name="SimpleConversation" Value="{{emote|*The humanoid gives no indication of understanding*.}}" />
+    </object>
+
+
+    <object Name="TristramBaseDarkCreatureHumanoidMage" Inherits="TristramBaseDarkCreatureHumanoid">
+        <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit" />
+        <tag Name="BaseObject" Value="*noinherit" />
+        <inventoryobject Blueprint="LaurusWeaponBaseFist" Number="2" />
+    </object>
+
+    <object Name="TristramBaseNPCUndead" Inherits="TristramBaseDarkCreatureHumanoid">
+        <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit" />
+        <tag Name="BaseObject" Value="*noinherit" />
+        <part Name="Corpse" CorpseChance="75" CorpseBlueprint="TristramCorpseUndead" />
+        <intproperty Name="Bleeds" Value="0" />
+        <tag Name="SimpleConversation" Value="{{emote|*The undead being gives no indication of understanding*.}}" />
+        <mutation Name="DarkVision" Level="2" />
+        <inventoryobject Blueprint="LaurusWeaponBaseFist" Number="2" />
+        <stat Name="MoveSpeed" Value="50" />
+        <stat Name="Level" Boost="-4" />
+        <stat Name="Hitpoints" Boost="-50" />
+        <stat Name="Strength" Boost="-5" />
+        <stat Name="Agility" Boost="-5" />
+        <stat Name="Toughness" Boost="-5" />
+        <stat Name="Intelligence" Boost="-5" />
+        <stat Name="Willpower" Boost="-5" />
+        <stat Name="Ego" Boost="-5" />
+        <stat Name="AV" Boost="-5" />
+        <stat Name="DV" Boost="-5" />
+        <stat Name="XPValue" Boost="-50" />
+    </object>
+
+    <object Name="TristramBaseNPCZombie" Inherits="TristramBaseNPCUndead">
+        <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit" />
+        <tag Name="BaseObject" Value="*noinherit" />
+        <part Name="RandomColors" DetailColor="m,W,r,R,b,B,g,G" />
+    </object>
+
+    <object Name="TristramBaseNPCSkeleton" Inherits="TristramBaseNPCUndead">
+        <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit" />
+        <tag Name="BaseObject" Value="*noinherit" />
+        <part Name="Corpse" CorpseChance="100" CorpseBlueprint="TristramCorpseJustBones" />
+        <stag Name="HardMaterial" Value="bone" />
+    </object>
+
+    <object Name="TristramBaseNPCDemon" Inherits="TristramBaseDarkCreatureHumanoid">
+        <!-- Core Identity & Behavior -->
+        <tag Name="BaseObject" Value="*noinherit" />
+        <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit" />
+        <tag Name="Species" Value="demon" />
+
+        <!-- Description & Presentation -->
+        <part Name="Description" Short="A humanoid form swathed in tattered robes, its silhouette shifting unnaturally in the dim light. Beneath the fabric, glimpses of chitinous flesh glisten with a sickly sheen, and its breath rasps like dry leaves in the wind." />
+
+        <!-- Combat & Gameplay Mechanics -->
+        <stat Name="Level" Boost="5" />
+        <stat Name="Hitpoints" Boost="100" />
+        <stat Name="Strength" Boost="8" />
+        <stat Name="Agility" Boost="8" />
+        <stat Name="Toughness" Boost="8" />
+        <stat Name="Intelligence" Boost="8" />
+        <stat Name="Willpower" Boost="8" />
+        <stat Name="Ego" Boost="8" />
+        <stat Name="AV" Boost="4" />
+        <stat Name="DV" Boost="4" />
+        <stat Name="XPValue" Boost="200" />
+        <stat Name="MoveSpeed" Value="120" />
+
+        <!-- Resistances -->
+        <stat Name="HeatResistance" Value="20" />
+        <stat Name="ColdResistance" Value="20" />
+        <stat Name="ElectricResistance" Value="20" />
+        <stat Name="AcidResistance" Value="20" />
+
+        <!-- AI & Behavior -->
+        <part Name="AISelfPreservation" Threshold="20" />
+
+        <!-- Skills & Abilities -->
+        <mutation Name="DarkVision" Level="5" />
+        <skill Name="Cudgel" />
+        <skill Name="Cudgel_Bludgeon" />
+        <skill Name="Cudgel_Expertise" />
+        <skill Name="Cudgel_Slam" />
+        <skill Name="Multiweapon_Fighting" />
+
+        <!-- Corpse & Bleeding Properties -->
+        <part Name="Corpse" CorpseChance="50" CorpseBlueprint="TristramCorpseDemonSmall" BurntCorpseChance="20" BurntCorpseBlueprint="Ashes"/>
+        <tag Name="BleedLiquid" Value="sap-1000" />
+        <tag Name="BleedColor" Value="&amp;W" />
+        <tag Name="BleedPrefix" Value="{{W|sappy}}" />
+
+        <!-- Sound & Atmosphere -->
+        <tag Name="LairAmbientBed" Value="Sounds/Ambiences/amb_creature_humanoid_generic" />
+
+        <!-- Interaction & Dialogue -->
+        <tag Name="SimpleConversation" Value="{{emote|*The demon gives no indication of understanding*.}}" />
+        <tag Name="ConversationScript" Value="*delete" />
+    </object>
+
+    <object Name="TristramBaseNPCSmallDemon" Inherits="TristramBaseNPCDemon">
+        <!-- Base properties -->
+        <tag Name="BaseObject" Value="*noinherit" />
+        <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit" />
+        <inventoryobject Blueprint="LaurusWeaponBaseFist" Number="2" />
+    </object>
+
+    <object Name="TristramBaseNPCLargeDemon" Inherits="TristramBaseNPCDemon">
+        <!-- Base properties -->
+        <tag Name="BaseObject" Value="*noinherit" />
+        <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit" />
+        <tag Name="HeroHPBoost" Value="2" />
+        <!-- Increases hit points for "heroic" scaling -->
+        <tag Name="HeroStrBoost" Value="2" />
+        <!-- Increases strength for "heroic" scaling -->
+        <tag Name="Role" Value="Brute" />
+        <!-- Defines this entity's combat role -->
+
+        <!-- Behavior -->
+        <intproperty Name="Humanoid" Value="1" />
+        <!-- AI will flee when HP is low -->
+        <part Name="AISelfPreservation" Threshold="10" />
+        <part Name="LaurusTristramDemonMutator" MutationChanceOneInX="50"/>
+        <inventoryobject Blueprint="LaurusWeaponBaseFist" Number="2" />
+
+        <!-- Corpse properties -->
+        <part Name="Corpse" CorpseChance="70" CorpseBlueprint="TristramCorpseDemonLarge" BurntCorpseChance="5" BurntCorpseBlueprint="Ashes"/>
+
+        <!-- Mutations & Skills -->
+        <mutation Name="LightManipulation" Level="4" />
+        <skill Name="Endurance" />
+
+        <!-- Base stats -->
+        <!-- Moves slower due to size -->
+        <stat Name="MoveSpeed" Value="80" />
+
+        <!-- Resistances -->
+        <stat Name="HeatResistance" Value="40" />
+        <stat Name="ColdResistance" Value="40" />
+        <stat Name="ElectricResistance" Value="40" />
+        <stat Name="AcidResistance" Value="40" />
+
+        <!-- Audio & Miscellaneous -->
+        <tag Name="LairAmbientBed" Value="Sounds/Ambiences/amb_creature_humanoid_generic" />
+
+        <!-- Boosted Stats -->
+        <stat Name="Level" Boost="5" />
+        <stat Name="Hitpoints" Boost="100" />
+        <stat Name="Strength" Boost="10" />
+        <stat Name="Toughness" Boost="5" />
+        <stat Name="Agility" Boost="-4" />
+        <!-- Clumsy due to large size -->
+        <stat Name="AV" Boost="5" />
+        <!-- Extra armor value -->
+        <stat Name="DV" Boost="-5" />
+        <!-- Lower dodge due to bulk -->
+        <stat Name="XPValue" Boost="250" />
+        <!-- Higher XP reward -->
+    </object>
+
+    <object Name="TristramBaseNPCDemonNonHumanoid" Inherits="TristramBaseNPCDemon">
+        <!-- Base properties -->
+        <tag Name="BaseObject" Value="*noinherit" />
+        <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit" />
+
+        <!-- Behavior -->
+        <intproperty Name="Humanoid" Value="0" />
+        <!-- Explicitly non-humanoid -->
+
+        <!-- Modifications for non-humanoid demons -->
+        <tag Name="Humanoid" Value="*delete" />
+        <tag Name="PrimaryLimbType" Value="Face" />
+    </object>
+
+
+    <object Name="TristramBaseNPCDemonFlying" Inherits="TristramBaseNPCDemonNonHumanoid">
+        <!-- Rendering properties -->
+        <part Name="Render" DisplayName="feral demon flyer" Tile="creatures/sw_dawnglider.bmp" RenderString="d" ColorString="&amp;y" />
+
+        <!-- Base properties -->
+        <tag Name="BaseObject" Value="*noinherit" />
+        <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit" />
+
+        <part Name="Description" Short="A gaunt-winged demon flits erratically through the air, its skeletal frame wrapped in tattered membrane. Its ember eyes burn with a feral hunger." />
+
+        <!-- Anatomy & Mutations -->
+        <part Name="Body" Anatomy="Bird" />
+        <mutation Name="Wings" Level="10" CapOverride="10" />
+        <mutation Name="Beak" />
+
+        <!-- Classification -->
+        <tag Name="Class" Value="bird" />
+        <tag Name="Culture" Value="Bird" />
+
+        <!-- Sounds -->
+        <tag Name="LairAmbientBed" Value="Sounds/Ambiences/amb_creature_bird" />
+        <tag Name="DeathSounds" Value="Sounds/Creatures/VO/sfx_creature_animal_bird_vo_die" />
+        <tag Name="TakeDamageSound" Value="Sounds/Creatures/VO/sfx_creature_animal_bird_vo_hurt" />
+        <tag Name="AmbientIdleSound" Value="Sounds/Creatures/VO/sfx_creature_animal_bird_vo_idle" />
+        <tag Name="PunchSound" Value="Sounds/Creatures/VO/sfx_creature_animal_bird_vo_attack" />
+
+        <!-- Stats -->
+        <stat Name="Level" Boost="-2" />
+        <stat Name="Hitpoints" Boost="-40" />
+        <stat Name="Agility" Boost="3" />
+        <stat Name="Toughness" Boost="2" />
+        <stat Name="Intelligence" Boost="2" />
+        <stat Name="Willpower" Boost="-2" />
+        <stat Name="Ego" Boost="2" />
+        <stat Name="DV" Boost="3" />
+        <!-- High action points for rapid movement -->
+        <stat Name="AP" Boost="20" />
+    </object>
+
+    <object Name="TristramBaseNPCDemonCanine" Inherits="TristramBaseNPCDemonNonHumanoid">
+        <!-- Rendering properties -->
+        <part Name="Render" DisplayName="feral demon dog" Tile="creatures/sw_dog.bmp" RenderString="d" ColorString="&amp;y" />
+
+        <!-- Base properties -->
+        <tag Name="BaseObject" Value="*noinherit" />
+        <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit" />
+
+        <part Name="Description" Short="A sinewy demon hound prowls on all fours, its hide stretched taut over a frame of raw muscle and jagged bone. It exhales in deep, guttural snarls." />
+
+        <!-- Anatomy -->
+        <part Name="Body" Anatomy="Quadruped" />
+        <tag Name="PrimaryLimbType" Value="Face" />
+
+        <!-- Classification -->
+        <tag Name="Class" Value="dog" />
+        <tag Name="Culture" Value="Dog" />
+        <inventoryobject Blueprint="LaurusWeaponBaseBite" Number="1" />
+        <inventoryobject Blueprint="LaurusWeaponBaseClaw" Number="2" />
+
+        <!-- Sounds -->
+        <tag Name="LairAmbientBed" Value="Sounds/Ambiences/amb_creature_dog" />
+        <tag Name="DeathSounds" Value="Sounds/Creatures/VO/sfx_creature_animal_dog_vo_die" />
+        <tag Name="TakeDamageSound" Value="Sounds/Creatures/VO/sfx_creature_animal_dog_vo_hurt" />
+        <tag Name="AmbientIdleSound" Value="Sounds/Creatures/VO/sfx_creature_animal_dog_vo_idle" />
+        <tag Name="PunchSound" Value="Sounds/Creatures/VO/sfx_creature_animal_dog_vo_attack" />
+
+        <!-- Stats -->
+        <!-- Faster movement due to quadrupedal nature -->
+        <stat Name="MoveSpeed" Value="140" />
+        <stat Name="Level" Boost="-4" />
+        <stat Name="Hitpoints" Boost="-20" />
+        <stat Name="Agility" Boost="4" />
+        <stat Name="Toughness" Boost="2" />
+        <stat Name="Intelligence" Boost="-2" />
+        <stat Name="Willpower" Boost="2" />
+        <stat Name="Ego" Boost="-2" />
+        <stat Name="AV" Boost="-2" />
+        <stat Name="DV" Boost="-2" />
+    </object>
+
+
+    <!-- Implementations -->
+    <object Name="TristramNpcScavenger" Inherits="TristramBaseNPCDemonCanine">
+        <part Name="Render" DisplayName="scavenger" ColorString="&amp;r" DetailColor="R" />
+        <part Name="Description" Short="=pronouns.Subjective= =verb:are:afterpronoun= a crouched, debased thing, all sinew and hunger. =pronouns.Possessive= glowing red eyes gleam in the dark as =pronouns.subjective= sniff for carrion." />
+    </object>
+
+    <object Name="TristramNpcPlagueEater" Inherits="TristramNpcScavenger">
+        <part Name="Render" DisplayName="plague eater" ColorString="&amp;o" DetailColor="O" />
+        <part Name="Description" Short="Flecked with disease and foul sores, =pronouns.subjective= reeks of decay. =pronouns.Possessive= mottled fur is thick with filth, and =pronouns.possessive= bloodshot eyes scan for the next easy meal." />
+        <stat Name="Level" Boost="4" />
+        <stat Name="Hitpoints" Boost="90" />
+        <stat Name="Strength" Boost="4" />
+        <stat Name="Agility" Boost="3" />
+        <stat Name="Toughness" Boost="4" />
+        <stat Name="Intelligence" Boost="2" />
+        <stat Name="Willpower" Boost="4" />
+        <stat Name="Ego" Boost="1" />
+        <stat Name="AV" Boost="2" />
+        <stat Name="DV" Boost="3" />
+        <stat Name="XPValue" Boost="100" />
+    </object>
+
+    <object Name="TristramNpcShadowBeast" Inherits="TristramNpcPlagueEater">
+        <part Name="Render" DisplayName="shadow beast" ColorString="&amp;m" DetailColor="M" />
+        <part Name="Description" Short="=pronouns.Subjective= =verb:move:afterpronoun= as though cut from the dark itself. =pronouns.Possessive= hulking shape flickers in and out of sight, tendrils of shadow clinging to =pronouns.possessive= fur like smoke." />
+        <stat Name="Level" Boost="7" />
+        <stat Name="Hitpoints" Boost="130" />
+        <stat Name="Strength" Boost="6" />
+        <stat Name="Agility" Boost="5" />
+        <stat Name="Toughness" Boost="5" />
+        <stat Name="Intelligence" Boost="3" />
+        <stat Name="Willpower" Boost="5" />
+        <stat Name="Ego" Boost="2" />
+        <stat Name="AV" Boost="3" />
+        <stat Name="DV" Boost="4" />
+        <stat Name="XPValue" Boost="200" />
+    </object>
+
+    <object Name="TristramNpcBoneGnasher" Inherits="TristramNpcShadowBeast">
+        <part Name="Render" DisplayName="bone gnasher" ColorString="&amp;y" DetailColor="r" />
+        <part Name="Description" Short="Jagged teeth grind as =pronouns.subjective= prowls forward, bloodied claws gouging the earth. Bone Gnashers fear nothing—not even the light. If =pronouns.subjective= sees prey, =pronouns.subjective= will chase it to the ends of the earth." />
+        <stat Name="Level" Boost="10" />
+        <stat Name="Hitpoints" Boost="180" />
+        <stat Name="Strength" Boost="8" />
+        <stat Name="Agility" Boost="6" />
+        <stat Name="Toughness" Boost="7" />
+        <stat Name="Intelligence" Boost="4" />
+        <stat Name="Willpower" Boost="6" />
+        <stat Name="Ego" Boost="3" />
+        <stat Name="AV" Boost="4" />
+        <stat Name="DV" Boost="5" />
+        <stat Name="XPValue" Boost="350" />
+    </object>
+
+    <object Name="TristramNpcWingedFiend" Inherits="TristramBaseNPCDemonFlying">
+        <part Name="Render" DisplayName="winged fiend" ColorString="&amp;r" DetailColor="R" />
+        <part Name="Description" Short="A wretched, winged imp flutters erratically, its skeletal frame barely supporting its frantic motions. Its crackling fingertips spark with baleful energy." />
+        <mutation Name="Horns" Level="4" />
+        <stat Name="XPValue" Boost="50" />
+    </object>
+
+    <object Name="TristramNpcBlink" Inherits="TristramNpcWingedFiend">
+        <part Name="Render" DisplayName="blink" ColorString="&amp;y" DetailColor="B" />
+        <part Name="Description" Short="This small demon flickers in and out of reality, its jagged form shifting with each beat of its tattered wings. A sudden snap of electricity heralds its next move." />
+        <mutation Name="Phasing" Level="6" />
+        <stat Name="Level" Boost="4" />
+        <stat Name="Hitpoints" Boost="40" />
+        <stat Name="Agility" Boost="6" />
+        <stat Name="Intelligence" Boost="3" />
+        <stat Name="DV" Boost="3" />
+        <stat Name="XPValue" Boost="100" />
+    </object>
+
+    <object Name="TristramNpcGloom" Inherits="TristramNpcBlink">
+        <part Name="Render" DisplayName="gloom" ColorString="&amp;y" DetailColor="K" />
+        <part Name="Description" Short="Swathed in living shadow, this fiend seems half-formed, its edges dissolving into curling mist. Its ember eyes glow with malevolent intent." />
+        <mutation Name="Phasing" Level="10" />
+        <stat Name="Level" Boost="5" />
+        <stat Name="Hitpoints" Boost="50" />
+        <stat Name="Agility" Boost="5" />
+        <stat Name="Toughness" Boost="3" />
+        <stat Name="Willpower" Boost="2" />
+        <stat Name="DV" Boost="4" />
+        <stat Name="XPValue" Boost="150" />
+    </object>
+
+    <object Name="TristramNpcFamiliar" Inherits="TristramNpcGloom">
+        <part Name="Render" DisplayName="familiar" ColorString="&amp;w" DetailColor="O" />
+        <part Name="Description" Short="More than just a beast, this infernal familiar bears an unnatural cunning. Its eyes gleam with intelligence beyond its bestial kin, its body thrumming with dark sorcery." />
+        <mutation Name="FearAura" Level="5" />
+        <mutation Name="Telepathy" Level="5" />
+        <stat Name="Level" Boost="7" />
+        <stat Name="Hitpoints" Boost="60" />
+        <stat Name="Agility" Boost="6" />
+        <stat Name="Intelligence" Boost="6" />
+        <stat Name="Willpower" Boost="5" />
+        <stat Name="Ego" Boost="4" />
+        <stat Name="DV" Boost="5" />
+        <stat Name="XPValue" Boost="200" />
+    </object>
+
+    <object Name="TristramNpcSkeleton1" Inherits="TristramBaseNPCSkeleton">
+        <part Name="Render" DisplayName="skeleton" ColorString="&amp;y" DetailColor="Y" />
+        <part Name="Description" Short="A clattering frame of exposed bone, held together by unnatural force. =pronouns.Subjective= moves in eerie silence, empty sockets locked in an eternal, unfeeling gaze. When =pronouns.subjective= strikes, it does so with an unsettling precision, as though following some grim directive from beyond the grave." />
+    </object>
+
+    <object Name="TristramNpcSkeleton2" Inherits="TristramNpcSkeleton1">
+        <part Name="Render" DisplayName="bonewalker" ColorString="&amp;K" DetailColor="y" />
+        <part Name="Description" Short="=pronouns.Subjective= moves with unsettling grace, a predator in ragged remains of armor. =pronouns.Possessive= glowing red gaze scans the dark, hungry for the scent of marrow." />
+        <stat Name="Level" Boost="2" />
+        <stat Name="Hitpoints" Boost="30" />
+        <stat Name="Agility" Boost="2" />
+        <stat Name="Strength" Boost="2" />
+        <stat Name="DV" Boost="1" />
+        <stat Name="XPValue" Boost="50" />
+    </object>
+
+    <object Name="TristramNpcSkeleton3" Inherits="TristramNpcSkeleton2">
+        <part Name="Render" DisplayName="burning dead" ColorString="&amp;R" DetailColor="r" />
+        <part Name="Description" Short="=pronouns.Subjective= is draped in the tattered remnants of a soldier’s garb, clinging to the memory of duty long after flesh has rotted. =pronouns.Possessive= rusted blade gleams with unholy resolve." />
+        <stat Name="Level" Boost="3" />
+        <stat Name="Hitpoints" Boost="50" />
+        <stat Name="Strength" Boost="3" />
+        <stat Name="Toughness" Boost="2" />
+        <stat Name="DV" Boost="2" />
+        <stat Name="XPValue" Boost="50" />
+    </object>
+
+    <object Name="TristramNpcSkeleton4" Inherits="TristramNpcSkeleton3">
+        <part Name="Render" DisplayName="horror" ColorString="&amp;c" DetailColor="K" />
+        <part Name="Description" Short="Armor fused to bone, =pronouns.Subjective= marches forward with eerie discipline. =pronouns.Possessive= empty sockets burn with an ancient, undying hatred." />
+        <stat Name="Level" Boost="4" />
+        <stat Name="Hitpoints" Boost="70" />
+        <stat Name="Strength" Boost="4" />
+        <stat Name="Toughness" Boost="3" />
+        <stat Name="DV" Boost="3" />
+        <stat Name="XPValue" Boost="50" />
+    </object>
+
+    <object Name="TristramNpcZombie1" Inherits="TristramBaseNPCZombie">
+        <part Name="Render" DisplayName="zombie" ColorString="&amp;r" DetailColor="R" />
+        <part Name="Description" Short="A shambling corpse, its flesh sloughing from blackened bone. =pronouns.Possessive= vacant eyes glow dimly with unnatural hunger, and =pronouns.subjective= lurches forward with stiff, jerking movements, driven by some mindless, rotting instinct." />
+    </object>
+
+    <object Name="TristramNpcZombie2" Inherits="TristramNpcZombie1">
+        <part Name="Render" DisplayName="ghoul" ColorString="&amp;b" DetailColor="C" />
+        <part Name="Description" Short="Twisted and rotting, =pronouns.Subjective= lurches forward, driven by instincts too deep to forget. Black ichor seeps from old wounds, leaving a sickly trail." />
+        <stat Name="Level" Boost="2" />
+        <stat Name="Hitpoints" Boost="40" />
+        <stat Name="Strength" Boost="2" />
+        <stat Name="Toughness" Boost="2" />
+        <stat Name="XPValue" Boost="65" />
+    </object>
+
+    <object Name="TristramNpcZombie3" Inherits="TristramNpcZombie2">
+        <part Name="Render" DisplayName="rotting carcass" ColorString="&amp;y" DetailColor="k" />
+        <part Name="Description" Short="=pronouns.Subjective= drags =pronouns.Possessive= ruined body forward, fingers scraping the ground. Bits of rotting flesh slough off with each step, yet still =pronouns.subjective= pursues the living with ceaseless hunger." />
+        <stat Name="Level" Boost="3" />
+        <stat Name="Hitpoints" Boost="60" />
+        <stat Name="Strength" Boost="3" />
+        <stat Name="Toughness" Boost="3" />
+        <stat Name="DV" Boost="1" />
+        <stat Name="XPValue" Boost="65" />
+    </object>
+
+    <object Name="TristramNpcZombie4" Inherits="TristramNpcZombie3">
+        <part Name="Render" DisplayName="black death" ColorString="&amp;g" DetailColor="G" />
+        <part Name="Description" Short="=pronouns.Subjective= reeks of corruption, its flesh sloughing away to reveal darkened bone. A fevered hunger burns in its filmy eyes, unrelenting, unstoppable." />
+        <stat Name="Level" Boost="4" />
+        <stat Name="Hitpoints" Boost="80" />
+        <stat Name="Strength" Boost="4" />
+        <stat Name="Toughness" Boost="4" />
+        <stat Name="DV" Boost="2" />
+        <stat Name="XPValue" Boost="65" />
+    </object>
+
+    <!-- Spawners -->
+
+    <object Name="TristramBaseNestBonePile" Inherits="LaurusBaseNest">
+        <part Name="Render" DisplayName="bone pile" Tile="Creatures/sw_nest.bmp" ColorString="&amp;w" DetailColor="r" />
+        <tag Name="BaseObject" Value="*noinherit" />
+        <part Name="Description" Short="Piles of bones shift and settle as though moved by an unseen force. The gaps between them echo with the faint sound of bones clicking together, their dark, hollow cavities suggesting a life of their own." />
+        <stat Name="Level" Value="10" />
+        <stat Name="Hitpoints" Value="50" />
+    </object>
+
+    <object Name="TristramBaseNestFleshPile" Inherits="LaurusBaseNest">
+        <part Name="Render" DisplayName="rotting flesh pile" Tile="Creatures/sw_nest.bmp" ColorString="&amp;w" DetailColor="r" />
+        <tag Name="BaseObject" Value="*noinherit" />
+        <part Name="Description" Short="Clumps of decaying flesh slump and twitch as if animated by some grotesque force. The smell of rot lingers heavily in the air, and the masses of sinew and bone seem to shift, hungry for more." />
+        <stat Name="Level" Value="10" />
+        <stat Name="Hitpoints" Value="50" />
+    </object>
+
+    <object Name="TristramBaseNestBonePileT1" Inherits="TristramBaseNestBonePile">
+        <part Name="Render" DisplayName="unsettling bone pile" ColorString="&amp;y" DetailColor="r" />
+        <part Name="LaurusSpawnNest" TurnsPerSpawn="15-20" NumberSpawned="2-4" SpawnMessage="Some bones assemble themselves into a skeleton." SpawnParticle="&amp;w." BlueprintSpawned="TristramNpcSkeleton1" />
+    </object>
+
+    <object Name="TristramBaseNestBonePileT2" Inherits="TristramBaseNestBonePileT1">
+        <part Name="Render" DisplayName="stirring bone heap" ColorString="&amp;K" DetailColor="r" />
+        <stat Name="Level" Value="15" />
+        <stat Name="AV" Value="1" />
+        <stat Name="Hitpoints" Value="75" />
+        <part Name="LaurusSpawnNest" TurnsPerSpawn="12-16" BlueprintSpawned="TristramNpcSkeleton2" />
+    </object>
+
+    <object Name="TristramBaseNestBonePileT3" Inherits="TristramBaseNestBonePileT2">
+        <part Name="Render" DisplayName="animated bone mound" ColorString="&amp;R" DetailColor="r" />
+        <stat Name="Level" Value="20" />
+        <stat Name="AV" Value="2" />
+        <stat Name="Hitpoints" Value="100" />
+        <part Name="LaurusSpawnNest" TurnsPerSpawn="10-14" NumberSpawned="3-5" SpawnMessage="The bones twitch, beginning to form into something more formidable." BlueprintSpawned="TristramNpcSkeleton3" />
+    </object>
+
+    <object Name="TristramBaseNestBonePileT4" Inherits="TristramBaseNestBonePileT3">
+        <part Name="Render" DisplayName="awakened bone throne" ColorString="&amp;c" DetailColor="r" />
+        <stat Name="Level" Value="25" />
+        <stat Name="AV" Value="3" />
+        <stat Name="Hitpoints" Value="150" />
+        <part Name="LaurusSpawnNest" TurnsPerSpawn="8-12" BlueprintSpawned="TristramNpcSkeleton4" />
+    </object>
+
+    <object Name="TristramBaseNestFleshPileT1" Inherits="TristramBaseNestFleshPile">
+        <part Name="Render" DisplayName="rotting flesh pile" ColorString="&amp;w" DetailColor="r" />
+        <part Name="LaurusSpawnNest" TurnsPerSpawn="15-20" NumberSpawned="2-4" SpawnMessage="Chunks of flesh stir and moan, slowly shaping into a zombie." SpawnParticle="&amp;w." BlueprintSpawned="TristramNpcZombie1" />
+    </object>
+
+    <object Name="TristramBaseNestFleshPileT2" Inherits="TristramBaseNestFleshPileT1">
+        <part Name="Render" DisplayName="groaning flesh heap" ColorString="&amp;w" DetailColor="r" />
+        <stat Name="Level" Value="15" />
+        <stat Name="AV" Value="1" />
+        <stat Name="Hitpoints" Value="75" />
+        <part Name="LaurusSpawnNest" TurnsPerSpawn="12-16" BlueprintSpawned="TristramNpcZombie2" />
+    </object>
+
+    <object Name="TristramBaseNestFleshPileT3" Inherits="TristramBaseNestFleshPileT2">
+        <part Name="Render" DisplayName="churning flesh mound" ColorString="&amp;w" DetailColor="r" />
+        <stat Name="Level" Value="20" />
+        <stat Name="AV" Value="2" />
+        <stat Name="Hitpoints" Value="100" />
+        <part Name="LaurusSpawnNest" TurnsPerSpawn="10-14" NumberSpawned="3-5" SpawnMessage="The flesh begins to writhe, forming into more grotesque zombies." BlueprintSpawned="TristramNpcZombie3" />
+    </object>
+
+    <object Name="TristramBaseNestFleshPileT4" Inherits="TristramBaseNestFleshPileT3">
+        <part Name="Render" DisplayName="awakened zombie mound" ColorString="&amp;w" DetailColor="r" />
+        <stat Name="Level" Value="25" />
+        <stat Name="AV" Value="3" />
+        <stat Name="Hitpoints" Value="150" />
+        <part Name="LaurusSpawnNest" TurnsPerSpawn="8-12" BlueprintSpawned="TristramNpcZombie4" />
+    </object>
+
+    <object Name="LaurusItemSpawnEggSkeletonT1Test" Inherits="LaurusBaseItemSpawnEgg">
+        <part Name="Render" DisplayName="egg" />
+        <part Name="LaurusSpawnVessel" SpawnBlueprint="TristramNpcSkeleton1" ReplaceBlueprint="LaurusBaseItemSpawnEggBroken" SpawnVerb="assemble" SlimesplatterOnSpawn="true" SpawnAmount="5" SpawnTime="1-10" SpawnChance="100" SpawnSound="sfx_creature_appear_eggCrack" />
+    </object>
+
+</objects>

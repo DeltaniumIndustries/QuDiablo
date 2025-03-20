@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Map Width="80" Height="25">
+
+  <!-- Static Cells -->
+  <cell X="2" Y="18">
+    <object Name="LaurusTerrainVillageTristram" />
+  </cell>
+
+</Map>
