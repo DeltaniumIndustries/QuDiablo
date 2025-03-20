@@ -1,10 +1,10 @@
 {
 	"id": "QuDiablo",
 	"loadorder": 1,
-	"title": "QuDiablo",
-	"description": "Adds new types of cells, ruins, encounters, etc.",
-	"tags": "silly,random,items",
-	"version": "1.2.1",
-	"author": "{{glotrot|LunarLaurus}}",
+	"title": "{{dark fiery|QuDiablo}",
+	"description": "Attempts to add Tristram and much of the content from Diablo I and Hellfire into the lands of Qud.\nThis was mostly done as a way to learn how modding works, so somethings are certainly of lesser quality than others.",
+	"tags": "diablo,content,items",
+	"version": "0.3.2",
+	"author": "{{dark fiery|LunarLaurus}}",
 	"previewImage": "preview.png"
 }
