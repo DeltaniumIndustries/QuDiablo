@@ -1,60 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
-	<PropertyGroup>
-		<AssemblyName>QuDiablo</AssemblyName>
-		<PackageId>net.LunarLaurus.QuDiablo</PackageId>
-		<Authors>LunarLaurus</Authors>
-		<TargetFramework>netstandard2.1</TargetFramework>
-		<LangVersion>9</LangVersion>
-		<GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-		<GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
-		<QudLibPath>C:\Program Files (x86)\Steam\steamapps\common\Caves of Qud\CoQ_Data\Managed\</QudLibPath>
-		<DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
-	</PropertyGroup>
-	<ItemGroup>
-		<ProjectReference Include="../LaurusCoreLib/LaurusCoreLib.csproj" />
-		<Reference Include="$(QudLibPath)/0Harmony.dll" />
-		<Reference Include="$(QudLibPath)/Assembly-CSharp.dll" />
-		<Reference Include="$(QudLibPath)/Assembly-CSharp-firstpass.dll" />
-		<Reference Include="$(QudLibPath)/mscorlib.dll" />
-		<Reference Include="$(QudLibPath)/netstandard.dll" />
-		<Reference Include="$(QudLibPath)/Newtonsoft.Json.dll" />
-		<Reference Include="$(QudLibPath)/RoslynCSharp.Compiler.dll" />
-		<Reference Include="$(QudLibPath)/RoslynCSharp.dll" />
-		<Reference Include="$(QudLibPath)/RoslynCSharp.Examples.dll" />
-		<Reference Include="$(QudLibPath)/System.AppContext.dll" />
-		<Reference Include="$(QudLibPath)/System.Collections.Concurrent.dll" />
-		<Reference Include="$(QudLibPath)/System.Collections.dll" />
-		<Reference Include="$(QudLibPath)/System.Collections.Immutable.dll" />
-		<Reference Include="$(QudLibPath)/System.Configuration.dll" />
-		<Reference Include="$(QudLibPath)/System.Console.dll" />
-		<Reference Include="$(QudLibPath)/System.Core.dll" />
-		<Reference Include="$(QudLibPath)/System.Data.dll" />
-		<Reference Include="$(QudLibPath)/System.Design.dll" />
-		<Reference Include="$(QudLibPath)/System.dll" />
-		<Reference Include="$(QudLibPath)/System.Numerics.dll" />
-		<Reference Include="$(QudLibPath)/System.Reflection.dll" />
-		<Reference Include="$(QudLibPath)/System.Reflection.Extensions.dll" />
-		<Reference Include="$(QudLibPath)/System.Reflection.Metadata.dll" />
-		<Reference Include="$(QudLibPath)/System.Reflection.Primitives.dll" />
-		<Reference Include="$(QudLibPath)/System.Resources.ResourceManager.dll" />
-		<Reference Include="$(QudLibPath)/System.Runtime.dll" />
-		<Reference Include="$(QudLibPath)/System.Runtime.Extensions.dll" />
-		<Reference Include="$(QudLibPath)/System.Runtime.InteropServices.dll" />
-		<Reference Include="$(QudLibPath)/System.Runtime.Numerics.dll" />
-		<Reference Include="$(QudLibPath)/System.Runtime.Serialization.dll" />
-		<Reference Include="$(QudLibPath)/System.Runtime.Serialization.Formatters.Soap.dll" />
-		<Reference Include="$(QudLibPath)/System.Runtime.Serialization.Xml.dll" />
-		<Reference Include="$(QudLibPath)/System.ValueTuple.dll" />
-		<Reference Include="$(QudLibPath)/System.Xml.dll" />
-		<Reference Include="$(QudLibPath)/System.Xml.Linq.dll" />
-		<Reference Include="$(QudLibPath)/System.Xml.ReaderWriter.dll" />
-		<Reference Include="$(QudLibPath)/System.Xml.XDocument.dll" />
-		<Reference Include="$(QudLibPath)/System.Xml.XmlDocument.dll" />
-		<Reference Include="$(QudLibPath)/System.Xml.XPath.dll" />
-		<Reference Include="$(QudLibPath)/System.Xml.XPath.XDocument.dll" />
-		<Reference Include="$(QudLibPath)/Trivial.CodeSecurity.dll" />
-		<Reference Include="$(QudLibPath)/Trivial.Mono.Cecil.dll" />
-		<Reference Include="$(QudLibPath)/Trivial.Mono.Cecil.Mdb.dll" />
-		<Reference Include="$(QudLibPath)/Trivial.Mono.Cecil.Pdb.dll" />
-	</ItemGroup>
+    <Import Project="..\Common.props" />
+    <PropertyGroup>
+        <AssemblyName>QuDiablo</AssemblyName>
+        <PackageId>net.LunarLaurus.QuDiablo</PackageId>
+    </PropertyGroup>
+    <ItemGroup>
+        <ProjectReference Include="../LaurusCoreLib/LaurusCoreLib.csproj" />
+    </ItemGroup>
 </Project>
